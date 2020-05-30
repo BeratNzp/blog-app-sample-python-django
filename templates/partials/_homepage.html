@@ -1,0 +1,49 @@
+<div class="text-right mb-4">
+    <i>
+        {% if keywords %}
+            <u>{{keywords}}</u> içeren {{articles.count}} makale(leri) görüntülüyorsunuz.
+        {% elif category %}
+            <u>{{category}}</u> kategorisindeki {{articles.count}} makale(leri) görüntülüyorsunuz.
+        {% else %}
+            Son {{articles.count}} makale(leri) görüntülüyorsunuz.
+        {% endif %}
+    </i>
+</div>
+{% if articles %}
+    {% for article in articles %}
+<div class="col-md-12">
+    <a class="removeDecorationLink" href="{% url 'showArticle' article.id %}">
+        <h1 class="mt-4">{{article.title}}</h1>
+    </a>
+    <hr>
+    <p class="text-left">
+        Kategori: <a href="{% url 'index' %}?category={{article.category}}">{{article.category}}</a>
+        <span class="rightedLink">
+          {{article.created_date}} | <a href="#">{{article.author}}</a> tarafından yazıldı.
+        </span>
+    </p>
+
+    {% if article.image %}
+    <hr>
+    <a class="removeDecorationLink" href="{% url 'showArticle' article.id %}">
+        <img class="img-fluid rounded" src="{{article.image.url}}" alt="">
+    </a>
+    {% endif %}
+
+    <!-- Post Content -->
+    <p class="lead mt-4">
+    {{article.content|safe|truncatewords:80}}
+    </p>
+    <!-- Post Content -->
+    <div class="row flexEndJustify">
+        <a class="btn btn-danger mt-4" href="{% url 'showArticle' article.id %}">Devamını Oku</a>
+    </div>
+
+</div>
+<hr class="new2">
+{% endfor %}
+    {% else %}
+        <div class="alert alert-danger">
+          Makale bulunamadı.
+        </div>
+{% endif %}

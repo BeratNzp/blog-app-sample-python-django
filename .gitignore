@@ -1,0 +1,10 @@
+/__pycache__
+/blog/__pycache__
+/pages/__pycache
+/templates/__pycache
+/venv
+/db.sqlite3
+/.idea
+/article/migrations
+/docker-compose.yml
+/Dockerfile

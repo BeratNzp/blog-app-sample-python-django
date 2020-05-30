@@ -1,0 +1,56 @@
+{% if messages %}
+
+        {% for message in messages %}
+        {% if message.tags == "info" %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% else %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endif %}
+        {% endfor %}
+{% endif %}
+<div class="col-md-12">
+  <h1 class="mt-4">{{article.title}}</h1>
+  <hr>
+  <p class="text-left">
+      Kategori: <a href="{% url 'index' %}?category={{article.category}}">{{article.category}}</a>
+      <span class="rightedLink">
+        {{article.created_date}} | <a href="#">{{article.author}}</a> tarafından yazıldı.
+      </span>
+  </p>
+
+  {% if article.image %}
+  <hr>
+  <img class="img-fluid rounded" src="{{article.image.url}}" alt="">
+  {% endif %}
+
+  <!-- Post Content -->
+  <p class="lead mt-4">
+  {{article.content|safe}}
+  <!-- Post Content -->
+  <!-- Comments Form -->
+  {% load crispy_forms_tags %}
+  <div class="card my-4 bg-light">
+    <h5 class="card-header">Yorum Yap</h5>
+    <div class="card-body">
+      <form action="{% url 'addComment' article.id %}" method="POST">
+        {% csrf_token %}
+        {% crispy addCommentForm addCommentForm.helper %}
+        <div class="g-recaptcha" data-sitekey="6LdRSRYUAAAAAFCqQ1aZnYfRGJIlAUMX3qkUWlcF"></div>
+      </form>
+    </div>
+  </div>
+  <!-- Comments Form -->
+{% if comments %}
+  {% for comment in comments %}
+  <!-- Single Comment -->
+  <div class="media mb-4">
+    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+    <div class="media-body">
+      <h5 class="mt-0">{{comment.author}}</h5>
+      {{comment.content}}
+    </div>
+  </div>
+  <!-- Single Comment -->
+  {% endfor %}
+{% endif%}
+</div>

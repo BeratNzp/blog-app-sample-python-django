@@ -1,0 +1,48 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="{% url 'index' %}">BeratNzp.com</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item {% if request.get_full_path != "/" %}active{%endif%}">
+        <a class="nav-link" href="{% url 'index' %}">Anasayfa <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item {% if request.get_full_path != "/about/" %}active{%endif%}">
+        <a class="nav-link" href="{% url 'about' %}">Hakkımda</a>
+      </li>
+
+      <li class="nav-item {% if request.get_full_path != "/contact/" %}active{%endif%}">
+        <a class="nav-link" href="{% url 'contact' %}">İletişim</a>
+      </li>
+
+    </ul>
+
+
+    <!-- . -->
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hoşgeldiniz; Ziyaretçi </a>
+
+      <div class="nav-link">
+
+        <div class="form-inline mt-2 mt-md-0">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="darkSwitch">
+            <label class="custom-control-label mr-3" for="darkSwitch">Dark Mode</label>
+          </div>
+          <form method="GET" action="/">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2 bg-light" type="text" autofocus="" name="keywords" placeholder="Makale başlığı" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+          </form>
+        </div>
+
+      </div>
+
+
+  </div>
+</nav>
+</header>

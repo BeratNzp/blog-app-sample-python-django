@@ -1,0 +1,55 @@
+<footer class="footer bg-light mt-4">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-3">
+        <h6>Navigasyon</h6>
+        <hr>
+        <ul class="list-unstyled footerItems">
+          <li>
+            <a href="{% url 'index' %}">Anasayfa</a>
+          </li>
+          <li>
+            <a href="{% url 'about' %}">Hakkımda</a>
+          </li>
+          <li>
+            <a href="{% url 'contact' %}">İletişim</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <h6>Navigasyon</h6>
+        <hr>
+        <ul class="list-unstyled footerItems">
+          <li></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <h6>e-Mail Bülteni</h6>
+        <hr>
+      <form enctype="multipart/form-data" method="post" action="/newsletter/BeratNzp.com/subscribe/">
+        {% csrf_token %}
+        <input type="email" class="form-control bg-light" name="email_field" placeholder="eMail Adresiniz" required="" id="id_email_field">
+        <button id="id_submit" class="btn btn-primary" name="submit" value="Subscribe" type="submit">Abone Ol</button>
+      </form>
+      </div>
+
+      <div class="col-md-3">
+        <h6>İletişim</h6>
+        <hr>
+        <ul class="list-unstyled footerItems">
+        <address>
+          <li><strong>Berat Niziplioğlu</strong></li>
+          <li><a href="https://www.makroport.net">https://www.makroport.net</a></li>
+          <li><a href="https://www.linkedin.com/in/beratnzp/">https://www.linkedin.com/in/beratnzp/</a></li>
+          <li><a href="https://github.com/BeratNzp">https://github.com/BeratNzp</a></li>
+          <li><a href="https://medium.com/@beratnzp">https://medium.com/@beratnzp</a></li>
+        </address>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,27 @@
+<div class="list-group mt-4">
+    <button type="button" class="list-group-item disabled bg-light">Bloglar</button>
+    <a class="list-group-item list-group-item-action bg-white" href="{% url 'allArticles' %}">Tümü ({{allArticlesCount}})</a>
+    {% for category,count in categoryList.items %}
+            <a class="list-group-item list-group-item-action bg-white" href="{% url 'index' %}?category={{category}}">
+                {{category}} ({{count}})
+            </a>
+    {% endfor %}
+</div>
+
+<div class="list-group mt-4">
+  <button type="button" class="list-group-item disabled bg-light">Reklam Alanı</button>
+  <div class="card bg-white">
+    <div class="p-4 defaultText">
+      Bu alana reklam verebilirsiniz.
+    </div>
+  </div>
+</div>
+
+<div class="list-group mt-4">
+  <button type="button" class="list-group-item disabled bg-light">Rastgele Makaleler</button>
+ {% for item in randomArticles %}
+  <a class="list-group-item list-group-item-action bg-white" href="{% url 'showArticle' item.id %}">
+      {{item.title}}
+  </a>
+  {% endfor %}
+</div>
