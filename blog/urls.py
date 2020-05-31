@@ -25,7 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('articles/', include('article.urls')),
-    url(r'^newsletter/', include('newsletter.urls')),
 ]
 
 if settings.DEBUG:

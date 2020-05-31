@@ -35,7 +35,6 @@
       <form action="{% url 'addComment' article.id %}" method="POST">
         {% csrf_token %}
         {% crispy addCommentForm addCommentForm.helper %}
-        <div class="g-recaptcha" data-sitekey="6LdRSRYUAAAAAFCqQ1aZnYfRGJIlAUMX3qkUWlcF"></div>
       </form>
     </div>
   </div>

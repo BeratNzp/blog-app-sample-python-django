@@ -6,7 +6,6 @@ django-ckeditor==5.9.0
 django-cleanup==4.0.0
 django-crispy-forms==1.9.1
 django-js-asset==1.2.2
-django-newsletter==0.9.1
 idna==2.9
 ldif3==3.1.1
 Pillow==7.1.2
@@ -15,7 +14,6 @@ python-dateutil==2.8.1
 pytz==2020.1
 requests==2.23.0
 six==1.15.0
-sorl-thumbnail==12.6.3
 sqlparse==0.3.1
 surlex==0.2.0
 unicodecsv==0.14.1

@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=3nr@3u8at@vli-5(92t_$(17%v1)h9d5^8a4#bb4h626d1rus'
+SECRET_KEY = 'x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,11 +42,8 @@ INSTALLED_APPS = [
     'django_cleanup',
     'ckeditor',
     'crispy_forms',
-    'django.contrib.sites',
-    'newsletter',
 ]
 
-SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -144,7 +141,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-GOOGLE_RECAPTCHA_SECRET_KEY = ''
-
-NEWSLETTER_CONFIRM_EMAIL = True
