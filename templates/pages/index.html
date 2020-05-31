@@ -1,6 +1,14 @@
 {% extends "includes/layout.html" %}
 {% block body %}
-
+<head>
+    <meta name="description" content="Teknoloji, yazılım ve sistem konularında içerikler barındıran kişisel blog sayfası.">
+    <meta name="keywords" content="berat,niziplioğlu,nzp,beratnzp,blog,yazılım,sistem,developer,system,gnu,linux,pyhon,php,shell,bash,cloud,sunucu,teknoloji">
+    <link rel="canonical" href="http://www.beratnzp.com/">
+    <meta property=”og:title” content='{{pageTitle}} :: BeratNzp.com'>
+	<meta property=”og:description” content="Teknoloji, yazılım ve sistem konularında içerikler barındıran kişisel blog sayfası.">
+	<meta name="twitter:title" content="{{pageTitle}} :: BeratNzp.com">
+	<meta name="twitter:description" content="Teknoloji, yazılım ve sistem konularında içerikler barındıran kişisel blog sayfası.">
+</head>
 {% include "../partials/_navbar.html" %}
 <main role="main" class="flex-shrink-0">
     <div class="container">

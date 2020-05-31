@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="{% url 'index' %}">BeratNzp.com</a>
+  <a class="navbar-brand" href="{% url 'index' %}" title="Anasayfa">BeratNzp.com</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,22 +9,22 @@
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item {% if request.get_full_path != "/" %}active{%endif%}">
-        <a class="nav-link" href="{% url 'index' %}">Anasayfa <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'index' %}" title="Anasayfa">Anasayfa <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item {% if request.get_full_path != "/about/" %}active{%endif%}">
-        <a class="nav-link" href="{% url 'about' %}">Hakkımda</a>
+        <a class="nav-link" href="{% url 'about' %}" title="Hakkımda">Hakkımda</a>
       </li>
 
       <li class="nav-item {% if request.get_full_path != "/contact/" %}active{%endif%}">
-        <a class="nav-link" href="{% url 'contact' %}">İletişim</a>
+        <a class="nav-link" href="{% url 'contact' %}" title="İletişim">İletişim</a>
       </li>
 
     </ul>
 
 
     <!-- . -->
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hoşgeldiniz; Ziyaretçi </a>
+      <a class="nav-link disabled" href="#"  title="#" tabindex="-1" aria-disabled="true">Hoşgeldiniz; Ziyaretçi </a>
 
       <div class="nav-link">
 

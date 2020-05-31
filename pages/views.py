@@ -53,21 +53,31 @@ def index(request):
     if request.GET.get("category"):
         categoryFilter = request.GET.get("category")
         context["category"] = categoryFilter
-
+        if "keywords" in context:
+            del context["keywords"]
         articles = Article.objects.filter(category__title=categoryFilter)
         context["articles"] = articles
     elif "category" in context and not request.GET.get("category"):
         del context["category"]
         getLimitedArticles(request)
+
+
     elif request.GET.get("keywords"):
         keywordsFilter = request.GET.get("keywords")
         articles = Article.objects.filter(title__contains = keywordsFilter)
+        if "category" in context:
+            del context["category"]
         context["articles"] = articles
         context["keywords"] = keywordsFilter
     elif "keywords" in context and not request.GET.get("keywords"):
         del context["keywords"]
         getLimitedArticles(request)
+
     else:
+        if "keywords" in context:
+            del context["keywords"]
+        if "category" in context:
+            del context["category"]
         getLimitedArticles(request)
     return render(request, "pages/index.html", context=context)
 

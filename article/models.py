@@ -15,6 +15,7 @@ class Article(models.Model):
     author = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Yazar")
     category = models.ForeignKey(Category, null=True, on_delete=models.PROTECT, verbose_name="Kategori", related_name="article")
     title = models.CharField(max_length=64, verbose_name="Başlık")
+    keywords = models.CharField(max_length=128, null=True, default="",blank=True, verbose_name="Anahtar Kelimeler")
     image = models.ImageField(blank=True, null=True, verbose_name="Görsel")
     content = RichTextField(verbose_name="İçerik")
     created_date = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturulma Tarihi")

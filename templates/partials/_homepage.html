@@ -1,3 +1,10 @@
+<div class="jumbotron text-center">
+    <h1>
+        BeratNzp.com Blog
+    </h1>
+    <hr>
+    Hoşgeldiniz
+</div>
 <div class="text-right mb-4">
     <i>
         {% if keywords %}
@@ -13,20 +20,20 @@
     {% for article in articles %}
 <div class="col-md-12">
     <a class="removeDecorationLink" href="{% url 'showArticle' article.id %}">
-        <h1 class="mt-4">{{article.title}}</h1>
+        <h2 class="mt-4">{{article.title}}</h2>
     </a>
     <hr>
     <p class="text-left">
-        Kategori: <a href="{% url 'index' %}?category={{article.category}}">{{article.category}}</a>
+        Kategori: <a href="{% url 'index' %}?category={{article.category}}" title="{{article.category}}">{{article.category}}</a>
         <span class="rightedLink">
-          {{article.created_date}} | <a href="#">{{article.author}}</a> tarafından yazıldı.
+          {{article.created_date}} | <a href="#" title="Yazar">{{article.author}}</a> tarafından yazıldı.
         </span>
     </p>
 
     {% if article.image %}
     <hr>
-    <a class="removeDecorationLink" href="{% url 'showArticle' article.id %}">
-        <img class="img-fluid rounded" src="{{article.image.url}}" alt="">
+    <a class="removeDecorationLink" href="{% url 'showArticle' article.id %}" title="{{article.title}}">
+        <img class="img-fluid rounded" src="{{article.image.url}}" alt="{{article.title}}">
     </a>
     {% endif %}
 
@@ -36,7 +43,7 @@
     </p>
     <!-- Post Content -->
     <div class="row flexEndJustify">
-        <a class="btn btn-danger mt-4" href="{% url 'showArticle' article.id %}">Devamını Oku</a>
+        <a class="btn btn-danger mt-4" href="{% url 'showArticle' article.id %}" title="{{article.title}}">Devamını Oku</a>
     </div>
 
 </div>

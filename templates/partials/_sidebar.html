@@ -1,8 +1,8 @@
 <div class="list-group mt-4">
     <button type="button" class="list-group-item disabled bg-light">Bloglar</button>
-    <a class="list-group-item list-group-item-action bg-white" href="{% url 'allArticles' %}">Tümü ({{allArticlesCount}})</a>
+    <a class="list-group-item list-group-item-action bg-white" title="Tümü" href="{% url 'allArticles' %}">Tümü ({{allArticlesCount}})</a>
     {% for category,count in categoryList.items %}
-            <a class="list-group-item list-group-item-action bg-white" href="{% url 'index' %}?category={{category}}">
+            <a class="list-group-item list-group-item-action bg-white" title="{{category}}" href="{% url 'index' %}?category={{category}}">
                 {{category}} ({{count}})
             </a>
     {% endfor %}
@@ -20,7 +20,7 @@
 <div class="list-group mt-4">
   <button type="button" class="list-group-item disabled bg-light">Rastgele Makaleler</button>
  {% for item in randomArticles %}
-  <a class="list-group-item list-group-item-action bg-white" href="{% url 'showArticle' item.id %}">
+  <a class="list-group-item list-group-item-action bg-white" title="{{item.title}}" href="{% url 'showArticle' item.id %}">
       {{item.title}}
   </a>
   {% endfor %}

@@ -1,3 +1,12 @@
+<head>
+    <meta name="description" content="{{article.content|truncatewords:10|safe|escape|striptags}}">
+    <meta name="keywords" content="{{article.keywords}}">
+    <link rel="canonical" href="{% url 'showArticle' article.id %}">
+    <meta property=”og:title” content='{{pageTitle}} :: BeratNzp.com'>
+	<meta property=”og:description” content="{{article.content|truncatewords:10|safe|escape|striptags}}">
+	<meta name="twitter:title" content="{{pageTitle}} :: BeratNzp.com">
+	<meta name="twitter:description" content="{{article.content|truncatewords:10|safe|escape|striptags}}">
+</head>
 {% if messages %}
 
         {% for message in messages %}
@@ -12,15 +21,15 @@
   <h1 class="mt-4">{{article.title}}</h1>
   <hr>
   <p class="text-left">
-      Kategori: <a href="{% url 'index' %}?category={{article.category}}">{{article.category}}</a>
+      Kategori: <a href="{% url 'index' %}?category={{article.category}}" title="{{article.category}}">{{article.category}}</a>
       <span class="rightedLink">
-        {{article.created_date}} | <a href="#">{{article.author}}</a> tarafından yazıldı.
+        {{article.created_date}} | <a href="#" title="Yazar">{{article.author}}</a> tarafından yazıldı.
       </span>
   </p>
 
   {% if article.image %}
   <hr>
-  <img class="img-fluid rounded" src="{{article.image.url}}" alt="">
+  <img class="img-fluid rounded" src="{{article.image.url}}" alt="{{article.title}}">
   {% endif %}
 
   <!-- Post Content -->
@@ -43,7 +52,7 @@
   {% for comment in comments %}
   <!-- Single Comment -->
   <div class="media mb-4">
-    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="{{article.title}}">
     <div class="media-body">
       <h5 class="mt-0">{{comment.author}}</h5>
       {{comment.content}}
