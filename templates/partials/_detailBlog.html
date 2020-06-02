@@ -4,8 +4,11 @@
     <link rel="canonical" href="{% url 'showArticle' article.id %}">
     <meta property=”og:title” content='{{pageTitle}} :: BeratNzp.com'>
 	<meta property=”og:description” content="{{article.content|truncatewords:10|safe|escape|striptags}}">
+	<meta property=”og:image” content="{{article.image.url}}">
 	<meta name="twitter:title" content="{{pageTitle}} :: BeratNzp.com">
 	<meta name="twitter:description" content="{{article.content|truncatewords:10|safe|escape|striptags}}">
+	<meta name="twitter:image" content="{{article.image.url}}">
+	<meta name="twitter:image:alt" content="{{article.title}}">
 </head>
 {% if messages %}
 
